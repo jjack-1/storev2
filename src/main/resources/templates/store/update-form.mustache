@@ -1,0 +1,38 @@
+{{>layout/header}}
+        <div class="container bg-light text-dark mt-5 p-5 rounded">
+            <h1 class="text-dark">상품수정</h1>
+            <form action="#">
+                <div class="mb-3 mt-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="상품명"
+                        name="name"
+                        value="바나나"
+                        required
+                    />
+                </div>
+                <div class="mb-3">
+                    <input
+                        type="number"
+                        class="form-control"
+                        placeholder="재고"
+                        name="stock"
+                        value="100"
+                        required
+                    />
+                </div>
+                <div class="mb-3">
+                    <input
+                        type="number"
+                        class="form-control"
+                        placeholder="가격"
+                        name="price"
+                        value="3000"
+                        required
+                    />
+                </div>
+                <button class="btn btn-primary">수정</button>
+            </form>
+        </div>
+{{>layout/footer}}

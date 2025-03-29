@@ -1,0 +1,26 @@
+{{>layout/header}}
+        <div class="container bg-light text-white mt-5 p-5 rounded">
+            <h1 class="text-dark">로그인</h1>
+            <form action="#">
+                <div class="mb-3 mt-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Username 입력"
+                        name="username"
+                        required
+                    />
+                </div>
+                <div class="mb-3">
+                    <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password 입력"
+                        name="password"
+                        required
+                    />
+                </div>
+                <button class="btn btn-primary">로그인</button>
+            </form>
+        </div>
+{{>layout/footer}}

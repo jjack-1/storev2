@@ -1,0 +1,31 @@
+{{>layout/header}}
+        <div class="container bg-light text-dark mt-5 p-5 rounded">
+            <h1 class="text-dark">상품상세</h1>
+            <div class="mb-5">
+                <div>
+                    번호 : 1 <br />
+                    상품명 : 바나나 <br />
+                    상품가격 : 3000원 <br />
+                    상품재고 : 100개 <br />
+                </div>
+                <br />
+                <a href="#" class="btn btn-primary">수정</a>
+                <a href="#" class="btn btn-danger">삭제</a>
+            </div>
+
+            <form action="#">
+                <div class="row">
+                    <div class="col">
+                        <input type="hidden" value="1" />
+                        <input
+                            type="number"
+                            class="form-control"
+                            placeholder="수량 입력"
+                            name="qty"
+                        />
+                    </div>
+                    <button class="col btn btn-dark">구매</button>
+                </div>
+            </form>
+        </div>
+{{>layout/footer}}
