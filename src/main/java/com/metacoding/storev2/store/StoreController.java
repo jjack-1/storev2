@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -39,5 +40,23 @@ public class StoreController {
         storeService.상품삭제(id);
 
         return "redirect:/store";
+    }
+
+    @GetMapping("/store/{id}/update-form")
+    public String updateForm(
+            HttpServletRequest request,
+            @PathVariable("id") int id) {
+        StoreResponse.StoreDetailDTO storeDetailDTO = storeService.상품상세(id);
+
+        request.setAttribute("model", storeDetailDTO);
+        return "/store/update-form";
+    }
+
+    @PostMapping("/store/{id}/update")
+    public String update(
+            @PathVariable("id") int id,
+            StoreRequest.StoreUpdateDTO storeUpdateDTO) {
+        storeService.상품수정(id, storeUpdateDTO);
+        return "redirect:/store/" + id;
     }
 }

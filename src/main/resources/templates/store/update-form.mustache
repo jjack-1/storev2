@@ -1,14 +1,14 @@
 {{>layout/header}}
         <div class="container bg-light text-dark mt-5 p-5 rounded">
             <h1 class="text-dark">상품수정</h1>
-            <form action="#">
+            <form action="/store/{{model.id}}/update" method="post">
                 <div class="mb-3 mt-3">
                     <input
                         type="text"
                         class="form-control"
                         placeholder="상품명"
                         name="name"
-                        value="바나나"
+                        value="{{model.name}}"
                         required
                     />
                 </div>
@@ -18,7 +18,7 @@
                         class="form-control"
                         placeholder="재고"
                         name="stock"
-                        value="100"
+                        value="{{model.stock}}"
                         required
                     />
                 </div>
@@ -28,7 +28,7 @@
                         class="form-control"
                         placeholder="가격"
                         name="price"
-                        value="3000"
+                        value="{{model.price}}"
                         required
                     />
                 </div>

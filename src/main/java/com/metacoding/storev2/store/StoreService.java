@@ -51,4 +51,17 @@ public class StoreService {
 
         storeRepository.deleteById(id);
     }
+
+    @Transactional
+    public void 상품수정(int id, StoreRequest.StoreUpdateDTO storeUpdateDTO) {
+        // 1. 상품 확인
+        Store store = storeRepository.findById(id);
+
+        // 2. 상품이 없으면 예외!
+        if (store == null) {
+            throw new RuntimeException("해당 상품이 없습니다");
+        }
+
+        storeRepository.updateById(id, storeUpdateDTO.getName(), storeUpdateDTO.getStock(), storeUpdateDTO.getPrice());
+    }
 }
