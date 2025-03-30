@@ -34,6 +34,10 @@ public class LogController {
     @PostMapping("/log/save")
     public String save(LogRequest.LogDTO logDTO) {
        User user = (User) session.getAttribute("sessionUser");
+
+        // 로그인을 하지 않으면 상품상세로 리다이렉트
+        if (user == null) return "redirect:/store/" + logDTO.getStoreId();
+
         logService.구매하기(logDTO, user);
         return "redirect:/log";
     };
