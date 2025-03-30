@@ -37,4 +37,13 @@ public class LogRepository {
 
         return logListItemDTOList;
     }
+
+    public void save(int userId, int storeId, int qty, int totalPrice) {
+        Query query = em.createNativeQuery("insert into log_tb (user_id, store_id, qty ,total_price, created_at) values (?,?,?,?, now())");
+        query.setParameter(1, userId);
+        query.setParameter(2, storeId);
+        query.setParameter(3, qty);
+        query.setParameter(4, totalPrice);
+        query.executeUpdate();
+    }
 }

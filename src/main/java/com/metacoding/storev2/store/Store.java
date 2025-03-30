@@ -21,4 +21,8 @@ public class Store {
     private int stock; // 상품 재고
     private int price; // 상품 가격
     private Timestamp createdAt;
+
+    public void 재고감소(int qty){
+        this.stock -= qty;
+    }
 }

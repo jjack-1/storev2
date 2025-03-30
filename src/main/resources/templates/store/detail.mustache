@@ -13,15 +13,16 @@
                 <a href="/store/{{model.id}}/delete" class="btn btn-danger">삭제</a>
             </div>
 
-            <form action="#">
+            <form action="/log/save" method="post">
                 <div class="row">
                     <div class="col">
-                        <input type="hidden" value="{{model.id}}" />
+                        <input type="hidden" name="storeId" value="{{model.id}}" />
                         <input
                             type="number"
                             class="form-control"
                             placeholder="수량 입력"
                             name="qty"
+                            value="10"
                         />
                     </div>
                     <button class="col btn btn-dark">구매</button>
