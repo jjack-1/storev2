@@ -19,7 +19,12 @@ public class LogController {
 
     @GetMapping("/log")
     public String list(HttpServletRequest request) {
-        List<LogResponse.LogListItemDTO> logListItemDTOList = logService.구매목록();
+        User user = (User) session.getAttribute("sessionUser");
+
+        // 로그인을 하지 않으면 홈으로 리다이렉트
+        if (user == null) return "redirect:/";
+
+        List<LogResponse.LogListItemDTO> logListItemDTOList = logService.구매목록(user);
 
         request.setAttribute("models", logListItemDTOList);
 

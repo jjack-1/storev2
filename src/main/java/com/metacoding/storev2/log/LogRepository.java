@@ -16,11 +16,20 @@ import lombok.RequiredArgsConstructor;
 public class LogRepository {
     private final EntityManager em;
 
-    public List<LogResponse.LogListItemDTO> findAllJoinStoreJoinUser() {
+    public List<LogResponse.LogListItemDTO> findAllByUserIdJoinStoreJoinUser(int userId) {
         Query query = em.createNativeQuery(
                 """
-                        select lt.id, ut.fullname, st.name, lt.qty, lt.total_price from LOG_TB lt inner join store_tb st on lt.store_id = st.id inner join user_tb ut on lt.user_id = ut.id;
+                        select lt.id, ut.fullname, st.name, lt.qty, lt.total_price 
+                        from LOG_TB lt 
+                            inner join store_tb st 
+                                on lt.store_id = st.id 
+                            inner join user_tb ut 
+                                on lt.user_id = ut.id
+                        where
+                            lt.user_id = ?;
                             """);
+        query.setParameter(1, userId);
+
         List<Object[]> objectsList = query.getResultList();
 
         List<LogResponse.LogListItemDTO> logListItemDTOList = new ArrayList<>();

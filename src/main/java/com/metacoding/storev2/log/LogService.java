@@ -18,8 +18,8 @@ public class LogService {
     private final LogRepository logRepository;
     private final StoreRepository storeRepository;
 
-    public List<LogListItemDTO> 구매목록() {
-        return logRepository.findAllJoinStoreJoinUser();
+    public List<LogListItemDTO> 구매목록(User user) {
+        return logRepository.findAllByUserIdJoinStoreJoinUser(user.getId());
     }
 
     @Transactional
