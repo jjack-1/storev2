@@ -5,7 +5,7 @@ import lombok.Data;
 public class StoreRequest {
 
     @Data
-    public static class StoreUpdateDTO {
+    public static class StoreDTO {
         private String name;
         private int stock;
         private int price;

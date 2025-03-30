@@ -44,4 +44,13 @@ public class StoreRepository {
         query.setParameter(4, id);
         query.executeUpdate();
     }
+
+    public void save(String name, int stock, int price) {
+        Query query = em
+                .createNativeQuery("insert into store_tb (name, price, stock, created_at) values (?, ?, ?, now())");
+        query.setParameter(1, name);
+        query.setParameter(2, stock);
+        query.setParameter(3, price);
+        query.executeUpdate();
+    }
 }

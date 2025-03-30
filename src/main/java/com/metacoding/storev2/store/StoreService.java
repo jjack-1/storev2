@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.metacoding.storev2.store.StoreRequest.StoreDTO;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -53,7 +55,7 @@ public class StoreService {
     }
 
     @Transactional
-    public void 상품수정(int id, StoreRequest.StoreUpdateDTO storeUpdateDTO) {
+    public void 상품수정(int id, StoreRequest.StoreDTO storeDTO) {
         // 1. 상품 확인
         Store store = storeRepository.findById(id);
 
@@ -62,6 +64,11 @@ public class StoreService {
             throw new RuntimeException("해당 상품이 없습니다");
         }
 
-        storeRepository.updateById(id, storeUpdateDTO.getName(), storeUpdateDTO.getStock(), storeUpdateDTO.getPrice());
+        storeRepository.updateById(id, storeDTO.getName(), storeDTO.getStock(), storeDTO.getPrice());
+    }
+
+    @Transactional
+    public void 상품등록(StoreRequest.StoreDTO storeDTO) {
+        storeRepository.save(storeDTO.getName(), storeDTO.getStock(), storeDTO.getPrice());
     }
 }

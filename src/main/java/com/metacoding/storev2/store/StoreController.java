@@ -55,8 +55,19 @@ public class StoreController {
     @PostMapping("/store/{id}/update")
     public String update(
             @PathVariable("id") int id,
-            StoreRequest.StoreUpdateDTO storeUpdateDTO) {
-        storeService.상품수정(id, storeUpdateDTO);
+            StoreRequest.StoreDTO storeDTO) {
+        storeService.상품수정(id, storeDTO);
         return "redirect:/store/" + id;
+    }
+
+    @GetMapping("/store/save-form")
+    public String saveForm() {
+        return "/store/save-form";
+    }
+
+    @PostMapping("/store/save")
+    public String save(StoreRequest.StoreDTO storeDTO) {
+        storeService.상품등록(storeDTO);
+        return "redirect:/store";
     }
 }
