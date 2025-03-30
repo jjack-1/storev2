@@ -18,4 +18,15 @@ public class StoreRepository {
 
         return query.getResultList();
     }
+
+    public Store findById(int id) {
+        Query query = em.createNativeQuery("select * from store_tb where id = ?", Store.class);
+        query.setParameter(1, id);
+
+        try {
+            return (Store) query.getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

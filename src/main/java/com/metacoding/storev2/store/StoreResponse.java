@@ -7,9 +7,19 @@ public class StoreResponse {
 
     @Data
     @AllArgsConstructor
-    public static class StoreDTO {
+    public static class StoreListItemDTO {
 
         private int id;
         private String name;
+    }
+
+    @Data
+    @AllArgsConstructor
+    public static class StoreDetailDTO {
+
+        private int id;
+        private String name;
+        private int stock;
+        private int price;
     }
 }
