@@ -5,14 +5,14 @@ import lombok.Data;
 public class UserRequest {
 
     @Data
-    public static class joinDTO {
+    public static class JoinDTO {
         private String username;
         private String fullname;
         private String password;
     }
 
     @Data
-    public static class loginDTO {
+    public static class LoginDTO {
         private String username;
         private String password;
     }

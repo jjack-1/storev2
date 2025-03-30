@@ -11,7 +11,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void 회원가입(UserRequest.joinDTO joinDTO) {
+    public void 회원가입(UserRequest.JoinDTO joinDTO) {
         // 1. 동일 username 있는지 확인
         User user = userRepository.findByUsername(joinDTO.getUsername());
 
@@ -24,7 +24,7 @@ public class UserService {
         userRepository.save(joinDTO.getUsername(), joinDTO.getFullname(), joinDTO.getPassword());
     }
 
-    public User 로그인(UserRequest.loginDTO loginDTO) {
+    public User 로그인(UserRequest.LoginDTO loginDTO) {
         // 1. username이 있는지 확인
         User user = userRepository.findByUsername(loginDTO.getUsername());
 

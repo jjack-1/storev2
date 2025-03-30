@@ -19,9 +19,9 @@ public class UserController {
     }
 
     @PostMapping("/join")
-    public String join(UserRequest.joinDTO userDTO) {
+    public String join(UserRequest.JoinDTO joinDTO) {
 
-        userService.회원가입(userDTO);
+        userService.회원가입(joinDTO);
 
         return "redirect:/login-form";
     }
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(UserRequest.loginDTO loginDTO) {
+    public String login(UserRequest.LoginDTO loginDTO) {
         User sessionUser = userService.로그인(loginDTO);
 
         session.setAttribute("sessionUser", sessionUser); // stateful 서버에 상태를 저장, 머스테치에서도 sessionUser 키값으로 데이터 접근 가능
