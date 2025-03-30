@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,5 +37,18 @@ public class StoreService {
         }
 
         return new StoreResponse.StoreDetailDTO(store.getId(), store.getName(), store.getStock(), store.getPrice());
+    }
+
+    @Transactional
+    public void 상품삭제(int id) {
+        // 1. 상품 확인
+        Store store = storeRepository.findById(id);
+
+        // 2. 상품이 없으면 예외!
+        if (store == null) {
+            throw new RuntimeException("해당 상품이 없습니다");
+        }
+
+        storeRepository.deleteById(id);
     }
 }
