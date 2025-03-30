@@ -1,13 +1,14 @@
 {{>layout/header}}
         <div class="container bg-light text-white mt-5 p-5 rounded">
             <h1 class="text-dark">회원가입</h1>
-            <form action="#">
+            <form action="/join" method="post">
                 <div class="mb-3 mt-3">
                     <input
                         type="text"
                         class="form-control"
                         placeholder="Username 입력"
                         name="username"
+                        value="love"
                         required
                     />
                 </div>
@@ -17,6 +18,7 @@
                         class="form-control"
                         placeholder="Fullname 입력"
                         name="fullname"
+                        value="러브"
                         required
                     />
                 </div>
@@ -26,6 +28,7 @@
                         class="form-control"
                         placeholder="Password 입력"
                         name="password"
+                        value="1234"
                         required
                     />
                 </div>
